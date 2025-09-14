@@ -5,7 +5,7 @@ pipeline {
         AWS_REGION = "ap-south-1"
         ECR_REPO = "626635415858.dkr.ecr.${AWS_REGION}.amazonaws.com/devops-task"
         EC2_USER = "ubuntu"
-        EC2_HOST = "13.126.137.137"
+        EC2_HOST = "13.126.73.217"
         EC2_KEY = "ec2-ssh-key"
         BUILD_NUMBER = "${env.BUILD_NUMBER}"
     }
