@@ -37,20 +37,14 @@ pipeline {
         stage('Push to ECR') {
             steps {
                 sh '''
-                    aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-                    aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-                    aws configure set default.region $AWS_REGION
-
-                    aws ecr get-login-password --region $AWS_REGION | \
-                    docker login --username AWS --password-stdin $ECR_REPO
-
-                    docker push $ECR_REPO:$BUILD_NUMBER
-                    docker tag $ECR_REPO:$BUILD_NUMBER $ECR_REPO:latest
-                    docker push $ECR_REPO:latest
-                '''
-            }
-        }
-
+                    aws ecr get-login-password --region ${AWS_REGION} | \
+            docker login --username AWS --password-stdin ${ECR_REPO}
+            docker push ${ECR_REPO}:${BUILD_NUMBER}
+            docker tag ${ECR_REPO}:${BUILD_NUMBER} ${ECR_REPO}:latest
+            docker push ${ECR_REPO}:latest
+        '''
+    }
+}
 
         stage('Deploy to EC2') {
             steps {
