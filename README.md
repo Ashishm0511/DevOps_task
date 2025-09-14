@@ -93,7 +93,7 @@ pipeline {
     agent any
     environment {
         AWS_REGION = "ap-south-1"
-        ECR_REPO = "626635415858.dkr.ecr.ap-south-1.amazonaws.com/devops-task"
+        ECR_REPO = "account_id.dkr.ecr.ap-south-1.amazonaws.com/repo-name"
         EC2_USER = "ubuntu"
         EC2_HOST = "ec2-XX-XX-XX-XX.ap-south-1.compute.amazonaws.com"
     }
@@ -102,7 +102,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/Ashishm0511/DevOps_task.git'
+                    url: 'https://github.com/username/DevOps_task.git'
             }
         }
 
