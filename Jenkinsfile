@@ -7,8 +7,6 @@ pipeline {
         EC2_USER = "ubuntu"
         EC2_HOST = "13.233.167.131"
         EC2_KEY = "ec2-ssh-key"
-        AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
         BUILD_NUMBER = "${env.BUILD_NUMBER}"
     }
 
